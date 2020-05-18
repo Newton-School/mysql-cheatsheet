@@ -2,17 +2,13 @@
 
 > Help with SQL commands to interact with a MySQL database
 
-## MySQL Locations
-* Mac             */usr/local/mysql/bin*
-* Windows         */Program Files/MySQL/MySQL _version_/bin*
-* Xampp           */xampp/mysql/bin*
 
 ## Add mysql to your PATH
 
 ```bash
 # Current Session
 export PATH=${PATH}:/usr/local/mysql/bin
-# Permanantly
+# Permanently
 echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
 ```
 
@@ -123,13 +119,13 @@ SHOW TABLES;
 ## Insert Row / Record
 
 ```sql
-INSERT INTO users (first_name, last_name, email, password, location, dept, is_admin, register_date) values ('Brad', 'Traversy', 'brad@gmail.com', '123456','Massachusetts', 'development', 1, now());
+INSERT INTO users (first_name, last_name, email, password, location, dept, is_admin, register_date) values ('Rahul', 'Shetty', 'rahul@gmail.com', '123456','Mumbai', 'development', 1, now());
 ```
 
 ## Insert Multiple Rows
 
 ```sql
-INSERT INTO users (first_name, last_name, email, password, location, dept,  is_admin, register_date) values ('Fred', 'Smith', 'fred@gmail.com', '123456', 'New York', 'design', 0, now()), ('Sara', 'Watson', 'sara@gmail.com', '123456', 'New York', 'design', 0, now()),('Will', 'Jackson', 'will@yahoo.com', '123456', 'Rhode Island', 'development', 1, now()),('Paula', 'Johnson', 'paula@yahoo.com', '123456', 'Massachusetts', 'sales', 0, now()),('Tom', 'Spears', 'tom@yahoo.com', '123456', 'Massachusetts', 'sales', 0, now());
+INSERT INTO users (first_name, last_name, email, password, location, dept,  is_admin, register_date) values ('John', 'Doe', 'john@gmail.com', '123456', 'New York', 'design', 0, now()), ('Joe', 'Don', 'joe@gmail.com', '123456', 'New York', 'design', 0, now()),('Will', 'Jackson', 'will@yahoo.com', '123456', 'Rhode Island', 'development', 1, now()),('Paula', 'Johnson', 'paula@yahoo.com', '123456', 'Massachusetts', 'sales', 0, now()),('Tom', 'Spears', 'tom@yahoo.com', '123456', 'Massachusetts', 'sales', 0, now());
 ```
 
 ## Select
