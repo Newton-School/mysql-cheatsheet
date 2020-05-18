@@ -250,6 +250,16 @@ id INT AUTO_INCREMENT,
 INSERT INTO posts(user_id, title, body) VALUES (1, 'Post One', 'This is post one'),(3, 'Post Two', 'This is post two'),(1, 'Post Three', 'This is post three'),(2, 'Post Four', 'This is post four'),(5, 'Post Five', 'This is post five'),(4, 'Post Six', 'This is post six'),(2, 'Post Seven', 'This is post seven'),(1, 'Post Eight', 'This is post eight'),(3, 'Post Nine', 'This is post none'),(4, 'Post Ten', 'This is post ten');
 ```
 
+## JOINS
+
+INNER JOIN gets all records that are common between both tables based on the supplied ON clause.
+
+LEFT JOIN gets all records from the LEFT linked and the related record from the right table ,but if you have selected some columns from the RIGHT table, if there is no related records, these columns will contain NULL.
+
+RIGHT JOIN is like the above but gets all records in the RIGHT table.
+
+FULL JOIN gets all records from both tables and puts NULL in the columns where related records do not exist in the opposite table.
+
 ## INNER JOIN
 
 ```sql
