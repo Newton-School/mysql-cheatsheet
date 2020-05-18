@@ -221,7 +221,11 @@ SELECT * FROM users WHERE dept NOT LIKE 'd%';
 SELECT * FROM users WHERE dept IN ('design', 'sales');
 ```
 
+We can use `WHERE dept='design' AND dept='sales'` but imagine if there are a lot of departments.
+
 ## Create & Remove Index
+
+Whenever we want a faster query result, we need to index the column. For example, if we know location is something quite frequently searched by users, then we can index it. `LIndex` is a name provided to the index. It means `Location Index`.
 
 ```sql
 CREATE INDEX LIndex On users(location);
@@ -229,6 +233,8 @@ DROP INDEX LIndex ON users;
 ```
 
 ## New Table With Foreign Key (Posts)
+
+Default is used to provide a default value. In our case, it's the current time.
 
 ```sql
 CREATE TABLE posts(
@@ -285,6 +291,8 @@ INSERT INTO comments(post_id, user_id, body) VALUES (1, 3, 'This is comment one'
 
 ## Left Join
 
+This will fetch you call the comments with it's respective post titles. Notice that if you change the join to right, it'll fetch you all the posts even if it doesn't have the comment.
+
 ```sql
 SELECT
 comments.body,
@@ -329,3 +337,39 @@ SELECT age, COUNT(age) FROM users WHERE age > 20 GROUP BY age;
 SELECT age, COUNT(age) FROM users GROUP BY age HAVING count(age) >=2;
 
 ```
+
+
+## Node.js connection
+
+```js
+const express = require('express');
+const mysql = require('mysql');
+
+const app = express();
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root'
+  password: '<password>',
+  database: 'test_database'
+});
+
+db.connect();
+
+app.get('/users', (req, res) => {
+  const sql = 'SELECT * FROM users';
+  
+  db.query(sql, (err, result) => {
+    if(err) return err;
+    
+    return res.send(result);
+  });
+});
+
+app.listen(4000, () => console.log('Server is running at port 4000'));
+```
+
+## Sequelize
+
+Use ORM rather than directly handling the queries by yourself:
+https://sequelize.org/
